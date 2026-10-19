@@ -34,5 +34,16 @@ Open the local URL printed by Next.js.
 
 - `npm run dev` - start the development server.
 - `npm run build` - create a production build.
+- `npm run build:github` - create a static export for GitHub Pages at `/profitsite`.
 - `npm run start` - run the production server after building.
 - `npm run lint` - run ESLint.
+
+## GitHub Pages
+
+The GitHub Pages build uses the repository path `/profitsite`.
+
+Expected Pages URL:
+
+```text
+https://mahmoud-elhalfawy.github.io/profitsite/
+```
