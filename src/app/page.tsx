@@ -7,6 +7,7 @@ import {
   Copy,
   Loader2,
   Mail,
+  MessageCircle,
   Phone,
   Sparkles,
   Star,
@@ -38,6 +39,12 @@ type DemoDetails = {
   painPoint: string;
 };
 
+type RiyadhTarget = DemoDetails & {
+  id: string;
+  priority: "High" | "Medium";
+  channel: string;
+};
+
 const initialDetails: DemoDetails = {
   businessName: "Bright Smile Dental",
   ownerName: "Morgan",
@@ -56,6 +63,144 @@ const starterProspects = [
   "Send the demo with a short email and a clear price.",
 ];
 
+const riyadhTargets: RiyadhTarget[] = [
+  {
+    id: "alma-beauty",
+    priority: "High",
+    channel: "WhatsApp or Instagram",
+    businessName: "Alma Beauty Center",
+    ownerName: "Alma Beauty team",
+    industry: "beauty center",
+    city: "Riyadh",
+    audience: "women looking for facials, nails, lashes, and beauty services",
+    offer: "an easy WhatsApp booking for beauty appointments",
+    phone: "+966552150100",
+    websiteGoal: "increase mobile appointment bookings from Instagram visitors",
+    painPoint:
+      "their online presence relies on Instagram and WhatsApp instead of a dedicated booking page",
+  },
+  {
+    id: "banan-noosa",
+    priority: "High",
+    channel: "WhatsApp",
+    businessName: "Banan Noosa Salon",
+    ownerName: "Banan Noosa team",
+    industry: "nail and beauty salon",
+    city: "Riyadh",
+    audience: "clients looking for nails, hair, skincare, and salon offers",
+    offer: "a featured manicure or beauty-service booking",
+    phone: "+966506396117",
+    websiteGoal: "make it easier for mobile visitors to see services and book",
+    painPoint:
+      "their public listing points people to Instagram instead of a focused service page",
+  },
+  {
+    id: "uv-salon",
+    priority: "High",
+    channel: "WhatsApp or Instagram",
+    businessName: "UV Salon",
+    ownerName: "UV Salon team",
+    industry: "beauty salon",
+    city: "Riyadh",
+    audience: "clients comparing hair, nails, and salon menu options",
+    offer: "a clean online service menu with WhatsApp booking",
+    phone: "+966543129667",
+    websiteGoal: "turn service-menu visitors into WhatsApp bookings",
+    painPoint:
+      "their menu appears as social/image content instead of a fast booking website",
+  },
+  {
+    id: "voila-hair",
+    priority: "High",
+    channel: "Instagram",
+    businessName: "Voila Hair Salon",
+    ownerName: "Voila team",
+    industry: "premium hair salon",
+    city: "Riyadh",
+    audience: "clients looking for scalp treatments, styling, and hair services",
+    offer: "a premium hair consultation and WhatsApp booking flow",
+    phone: "+966553561777",
+    websiteGoal: "make the online experience feel as premium as the salon",
+    painPoint:
+      "their strong brand can convert better with a dedicated premium landing page",
+  },
+  {
+    id: "adore-clinic",
+    priority: "High",
+    channel: "WhatsApp or Instagram",
+    businessName: "Adore Clinic",
+    ownerName: "Adore Clinic team",
+    industry: "dermatology clinic",
+    city: "Riyadh",
+    audience: "patients comparing dermatology, laser, and cosmetic treatments",
+    offer: "a clear appointment request for dermatology and aesthetic services",
+    phone: "+966112033777",
+    websiteGoal: "help patients understand treatments and request appointments faster",
+    painPoint:
+      "their listing uses Instagram and a booking link instead of a full trust-building clinic website",
+  },
+  {
+    id: "taawon-najd",
+    priority: "High",
+    channel: "WhatsApp",
+    businessName: "Taawon Najd Cleaning",
+    ownerName: "Taawon Najd team",
+    industry: "cleaning company",
+    city: "Riyadh",
+    audience: "homeowners and offices needing cleaning, AC washing, and pest control",
+    offer: "a same-day WhatsApp quote for cleaning services",
+    phone: "+966508011776",
+    websiteGoal: "turn social traffic into more quote requests",
+    painPoint:
+      "their services are spread across social posts instead of one quote-focused page",
+  },
+  {
+    id: "areeg-life",
+    priority: "High",
+    channel: "WhatsApp",
+    businessName: "Areeg Life Cleaning",
+    ownerName: "Areeg Life team",
+    industry: "cleaning company",
+    city: "Riyadh",
+    audience: "customers looking for reliable home and office cleaning",
+    offer: "a fast WhatsApp estimate for cleaning packages",
+    phone: "+966511303720",
+    websiteGoal: "convert more social profile visitors into paid cleaning jobs",
+    painPoint:
+      "their profile is more like a link page than a full service website with packages",
+  },
+  {
+    id: "azhar-habiba",
+    priority: "High",
+    channel: "WhatsApp or Instagram",
+    businessName: "Azhar Habiba",
+    ownerName: "Azhar Habiba team",
+    industry: "flower shop",
+    city: "Riyadh",
+    audience: "customers ordering flowers and gifts for occasions",
+    offer: "same-day bouquet and gift ordering through WhatsApp",
+    phone: "+966561247984",
+    websiteGoal: "make it easier for customers to choose and order flowers quickly",
+    painPoint:
+      "customers have to browse social content instead of a simple ordering page",
+  },
+  {
+    id: "abagward",
+    priority: "High",
+    channel: "WhatsApp",
+    businessName: "Abagward Al Narjis",
+    ownerName: "Abagward team",
+    industry: "flower and gift shop",
+    city: "Riyadh",
+    audience: "customers buying bouquets, gift wrapping, and seasonal gifts",
+    offer: "an easy WhatsApp checkout for flowers and gifts",
+    phone: "+966536111090",
+    websiteGoal: "speed up mobile ordering for bouquets and gifts",
+    painPoint:
+      "their online presence can convert better with product categories and direct checkout",
+  },
+];
+
 function titleCase(value: string) {
   return value
     .split(" ")
@@ -64,12 +209,53 @@ function titleCase(value: string) {
     .join(" ");
 }
 
+function normalizeWhatsAppPhone(value: string) {
+  const digits = value.replace(/\D/g, "");
+
+  if (!digits) {
+    return "";
+  }
+
+  if (digits.startsWith("00")) {
+    return digits.slice(2);
+  }
+
+  return digits;
+}
+
+function createWhatsAppMessage(details: DemoDetails) {
+  const businessName = details.businessName.trim() || "your business";
+  const industry = details.industry.trim() || "business";
+  const offer = details.offer.trim() || "your main offer";
+  const websiteGoal =
+    details.websiteGoal.trim() || "get more calls and WhatsApp enquiries";
+
+  return `السلام عليكم ${details.ownerName.trim() || "فريق العمل"}، سويت فيديو ديمو قصير يوضح كيف ممكن تكون صفحة موقع مخصصة لـ ${businessName}.
+
+الديمو يركز على ${offer} ويساعدكم على ${websiteGoal} من زوار الجوال وواتساب.
+
+إذا مناسب، أرسل لكم رابط المعاينة؟
+
+Hi ${details.ownerName.trim() || "there"}, I made a quick demo video for ${businessName}. It shows how a mobile website for your ${industry} could turn more visitors into WhatsApp enquiries. Want me to send the preview link?`;
+}
+
+function createWhatsAppHref(phone: string, message: string) {
+  const normalizedPhone = normalizeWhatsAppPhone(phone);
+
+  if (!normalizedPhone) {
+    return "";
+  }
+
+  return `https://wa.me/${normalizedPhone}?text=${encodeURIComponent(message)}`;
+}
+
 export default function Home() {
   const [details, setDetails] = useState<DemoDetails>(initialDetails);
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState("");
   const [copyError, setCopyError] = useState("");
-  const [copied, setCopied] = useState<"email" | "sms" | "">("");
+  const [activeTargetId, setActiveTargetId] = useState("");
+  const [copied, setCopied] = useState<"email" | "sms" | "whatsapp" | "">("");
 
   const safeDetails = useMemo(() => {
     const businessName = details.businessName.trim();
@@ -114,6 +300,12 @@ Want me to send the demo link?`;
     return `Hi ${safeDetails.ownerName || "there"}, I made a quick website demo for ${safeDetails.businessName} in ${safeDetails.city}. It is designed to help you ${safeDetails.websiteGoal}. Want me to send the link?`;
   }, [safeDetails]);
 
+  const whatsappCopy = useMemo(() => createWhatsAppMessage(details), [details]);
+  const whatsappHref = useMemo(
+    () => createWhatsAppHref(details.phone, whatsappCopy),
+    [details.phone, whatsappCopy],
+  );
+
   const packagePitch = useMemo(() => {
     return [
       {
@@ -141,6 +333,24 @@ Want me to send the demo link?`;
     }
   }
 
+  function loadTarget(target: RiyadhTarget) {
+    setActiveTargetId(target.id);
+    setDetails({
+      businessName: target.businessName,
+      ownerName: target.ownerName,
+      industry: target.industry,
+      city: target.city,
+      audience: target.audience,
+      offer: target.offer,
+      phone: target.phone,
+      websiteGoal: target.websiteGoal,
+      painPoint: target.painPoint,
+    });
+    setCopied("");
+    setCopyError("");
+    setError("");
+  }
+
   function generateDemo() {
     if (!details.businessName.trim() || !details.industry.trim() || !details.city.trim()) {
       setError("Add at least a business name, industry, and city to create a useful demo.");
@@ -154,7 +364,7 @@ Want me to send the demo link?`;
     }, 650);
   }
 
-  async function copyText(kind: "email" | "sms", text: string) {
+  async function copyText(kind: "email" | "sms" | "whatsapp", text: string) {
     try {
       await navigator.clipboard.writeText(text);
       setCopyError("");
@@ -225,7 +435,74 @@ Want me to send the demo link?`;
         </header>
 
         <div className="grid gap-6 lg:grid-cols-[420px_1fr]">
-          <Card className="h-fit">
+          <div className="grid h-fit gap-6">
+            <Card className="border-emerald-200 bg-emerald-50/80">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <MessageCircle className="h-5 w-5 text-emerald-600" />
+                  WhatsApp Business outreach
+                </CardTitle>
+                <CardDescription>
+                  Load a Riyadh target, copy the bilingual message, or open a
+                  prefilled WhatsApp chat from your own account.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid max-h-72 gap-2 overflow-y-auto pr-1">
+                  {riyadhTargets.map((target) => (
+                    <Button
+                      className="h-auto justify-start rounded-2xl px-4 py-3 text-left"
+                      key={target.id}
+                      onClick={() => loadTarget(target)}
+                      type="button"
+                      variant={target.id === activeTargetId ? "default" : "secondary"}
+                    >
+                      <span className="grid gap-1">
+                        <span>{target.businessName}</span>
+                        <span className="text-xs font-medium opacity-70">
+                          {target.industry} · {target.channel}
+                        </span>
+                      </span>
+                    </Button>
+                  ))}
+                </div>
+
+                <div className="rounded-3xl border border-emerald-100 bg-white p-4 text-sm leading-6 text-slate-800">
+                  <pre className="whitespace-pre-wrap font-sans">{whatsappCopy}</pre>
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <Button
+                    onClick={() => copyText("whatsapp", whatsappCopy)}
+                    type="button"
+                    variant="secondary"
+                  >
+                    <Copy className="h-4 w-4" />
+                    {copied === "whatsapp" ? "WhatsApp copied" : "Copy WhatsApp"}
+                  </Button>
+                  {whatsappHref ? (
+                    <Button asChild type="button">
+                      <a href={whatsappHref} rel="noopener noreferrer" target="_blank">
+                        <MessageCircle className="h-4 w-4" />
+                        Open WhatsApp
+                      </a>
+                    </Button>
+                  ) : (
+                    <Button disabled type="button">
+                      <MessageCircle className="h-4 w-4" />
+                      Add phone number
+                    </Button>
+                  )}
+                </div>
+
+                <div className="rounded-2xl border border-emerald-200 bg-emerald-100/60 px-4 py-3 text-sm leading-6 text-emerald-950">
+                  This opens a prefilled chat only. WhatsApp still asks you to
+                  review and press send, which keeps outreach personal and safer.
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="h-fit">
             <CardHeader>
               <CardTitle>Prospect details</CardTitle>
               <CardDescription>
@@ -332,6 +609,7 @@ Want me to send the demo link?`;
               </Button>
             </CardContent>
           </Card>
+          </div>
 
           <div className="grid gap-6">
             <Card className="overflow-hidden p-0">
