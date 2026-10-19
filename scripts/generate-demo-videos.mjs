@@ -170,8 +170,8 @@ function renderSlide(target, slideIndex) {
         width: 1280px;
         height: 720px;
         overflow: hidden;
-        background: #eef2ff;
-        color: #0f172a;
+        background: #050816;
+        color: #111827;
         font-family: Arial, Helvetica, sans-serif;
       }
       .frame {
@@ -179,15 +179,17 @@ function renderSlide(target, slideIndex) {
         height: 720px;
         padding: 54px;
         background:
-          radial-gradient(circle at 12% 10%, #dbeafe 0 24%, transparent 25%),
-          linear-gradient(135deg, #f8fafc 0%, #eef2ff 55%, #fff7ed 100%);
+          radial-gradient(circle at 12% 12%, rgba(250, 204, 21, 0.26) 0 18%, transparent 32%),
+          radial-gradient(circle at 90% 4%, rgba(56, 189, 248, 0.22) 0 14%, transparent 30%),
+          linear-gradient(135deg, #050816 0%, #0f172a 48%, #1f2937 100%);
       }
       .browser {
         height: 612px;
         overflow: hidden;
-        border: 1px solid #dbe3ef;
+        border: 1px solid rgba(250, 204, 21, 0.46);
         border-radius: 34px;
-        background: #ffffff;
+        background: #fffaf0;
+        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
       }
       .bar {
         display: flex;
@@ -195,16 +197,19 @@ function renderSlide(target, slideIndex) {
         gap: 10px;
         height: 54px;
         padding: 0 24px;
-        border-bottom: 1px solid #e2e8f0;
-        background: #f8fafc;
+        border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+        background: rgba(255, 255, 255, 0.86);
       }
       .dot { width: 12px; height: 12px; border-radius: 50%; background: #cbd5e1; }
+      .dot:nth-child(1) { background: #fb7185; }
+      .dot:nth-child(2) { background: #facc15; }
+      .dot:nth-child(3) { background: #34d399; }
       .url {
         margin-left: 10px;
         padding: 8px 18px;
         border-radius: 999px;
-        background: #ffffff;
-        color: #64748b;
+        background: #0f172a;
+        color: #f8fafc;
         font-size: 15px;
       }
       .content {
@@ -214,26 +219,33 @@ function renderSlide(target, slideIndex) {
         gap: 34px;
         padding: 46px;
         align-items: center;
+        background:
+          radial-gradient(circle at 80% 12%, rgba(250, 204, 21, 0.18), transparent 28%),
+          #fffaf0;
       }
       .panel {
         border-radius: 30px;
-        background: #0f172a;
+        background:
+          radial-gradient(circle at top right, rgba(250, 204, 21, 0.18), transparent 30%),
+          linear-gradient(145deg, #070b16 0%, #111827 64%, #0f172a 100%);
         color: #ffffff;
         height: 420px;
         overflow: hidden;
         padding: 44px;
+        border: 1px solid rgba(250, 204, 21, 0.24);
       }
       .side {
         height: 420px;
         overflow: hidden;
-        border: 1px solid #e2e8f0;
+        border: 1px solid rgba(148, 113, 28, 0.2);
         border-radius: 30px;
         padding: 34px;
-        background: #f8fafc;
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,251,235,0.98));
       }
       .eyebrow {
         margin: 0 0 18px;
-        color: #38bdf8;
+        color: #facc15;
         font-size: 16px;
         font-weight: 800;
         letter-spacing: 0.14em;
@@ -263,36 +275,41 @@ function renderSlide(target, slideIndex) {
         font-size: 17px;
         font-weight: 800;
       }
-      .cta { background: #2563eb; color: #ffffff; }
-      .ghost { background: rgba(255,255,255,0.12); color: #ffffff; }
+      .cta { background: #facc15; color: #111827; }
+      .ghost {
+        background: rgba(255,255,255,0.1);
+        color: #ffffff;
+        border: 1px solid rgba(250, 204, 21, 0.24);
+      }
       .services {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        margin-top: 32px;
+        gap: 12px;
+        margin-top: 22px;
       }
       .service-card {
         color: #0f172a;
-        min-height: 92px;
-        border: 1px solid #e2e8f0;
+        min-height: 74px;
+        border: 1px solid rgba(148, 113, 28, 0.18);
         border-radius: 24px;
-        background: #ffffff;
-        padding: 22px;
-        font-size: 22px;
+        background:
+          linear-gradient(180deg, #ffffff, #fffbeb);
+        padding: 16px;
+        font-size: 19px;
         font-weight: 800;
       }
       .service-card span {
         display: block;
-        width: 30px;
-        height: 30px;
-        margin-bottom: 16px;
+        width: 22px;
+        height: 22px;
+        margin-bottom: 10px;
         border-radius: 50%;
-        background: #dbeafe;
+        background: #facc15;
       }
       .review {
         margin-top: 32px;
         border-radius: 26px;
-        background: #fffbeb;
+        background: linear-gradient(180deg, #fffbeb, #fef3c7);
         color: #334155;
         padding: 28px;
         font-size: 24px;
@@ -307,15 +324,16 @@ function renderSlide(target, slideIndex) {
       .phone-mock {
         margin-top: 24px;
         border-radius: 28px;
-        background: #ffffff;
+        background: linear-gradient(180deg, #ffffff, #fffbeb);
         color: #0f172a;
         padding: 22px;
+        border: 1px solid rgba(148, 113, 28, 0.2);
       }
       .phone-mock div {
         width: 44px;
         height: 44px;
         border-radius: 50%;
-        background: #dcfce7;
+        background: #bbf7d0;
         margin-bottom: 14px;
       }
       .phone-mock strong {
@@ -329,7 +347,7 @@ function renderSlide(target, slideIndex) {
         font-size: 19px;
       }
       .side .label {
-        color: #64748b;
+        color: #94711c;
         font-size: 15px;
         font-weight: 800;
         letter-spacing: 0.14em;
@@ -340,10 +358,11 @@ function renderSlide(target, slideIndex) {
         font-size: 42px;
         font-weight: 900;
         letter-spacing: -0.04em;
+        color: #111827;
       }
       .side .note {
         margin-top: 24px;
-        color: #475569;
+        color: #4b5563;
         font-size: 22px;
         line-height: 1.45;
       }
