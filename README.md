@@ -37,6 +37,7 @@ Open the local URL printed by Next.js.
 - `npm run build:github` - create a static export for GitHub Pages at `/profitsite`.
 - `npm run start` - run the production server after building.
 - `npm run lint` - run ESLint.
+- `npm run videos:generate` - regenerate the short MP4 demo videos for cafe and gym targets.
 
 ## GitHub Pages
 

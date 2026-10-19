@@ -65,139 +65,154 @@ const starterProspects = [
 
 const riyadhTargets: RiyadhTarget[] = [
   {
-    id: "alma-beauty",
-    priority: "High",
-    channel: "WhatsApp or Instagram",
-    businessName: "Alma Beauty Center",
-    ownerName: "Alma Beauty team",
-    industry: "beauty center",
-    city: "Riyadh",
-    audience: "women looking for facials, nails, lashes, and beauty services",
-    offer: "an easy WhatsApp booking for beauty appointments",
-    phone: "+966552150100",
-    websiteGoal: "increase mobile appointment bookings from Instagram visitors",
-    painPoint:
-      "their online presence relies on Instagram and WhatsApp instead of a dedicated booking page",
-  },
-  {
-    id: "banan-noosa",
+    id: "broo-cafe",
     priority: "High",
     channel: "WhatsApp",
-    businessName: "Banan Noosa Salon",
-    ownerName: "Banan Noosa team",
-    industry: "nail and beauty salon",
+    businessName: "Broo Cafe",
+    ownerName: "Broo Cafe team",
+    industry: "cafe",
     city: "Riyadh",
-    audience: "clients looking for nails, hair, skincare, and salon offers",
-    offer: "a featured manicure or beauty-service booking",
-    phone: "+966506396117",
-    websiteGoal: "make it easier for mobile visitors to see services and book",
+    audience: "coffee lovers in Irqah looking for a quick menu, hours, and location",
+    offer: "a mobile menu and WhatsApp ordering flow",
+    phone: "+966508882327",
+    websiteGoal: "turn social profile visitors into more cafe visits and WhatsApp orders",
     painPoint:
-      "their public listing points people to Instagram instead of a focused service page",
+      "their public presence uses a link page instead of a branded cafe website",
   },
   {
-    id: "uv-salon",
-    priority: "High",
-    channel: "WhatsApp or Instagram",
-    businessName: "UV Salon",
-    ownerName: "UV Salon team",
-    industry: "beauty salon",
-    city: "Riyadh",
-    audience: "clients comparing hair, nails, and salon menu options",
-    offer: "a clean online service menu with WhatsApp booking",
-    phone: "+966543129667",
-    websiteGoal: "turn service-menu visitors into WhatsApp bookings",
-    painPoint:
-      "their menu appears as social/image content instead of a fast booking website",
-  },
-  {
-    id: "voila-hair",
-    priority: "High",
-    channel: "Instagram",
-    businessName: "Voila Hair Salon",
-    ownerName: "Voila team",
-    industry: "premium hair salon",
-    city: "Riyadh",
-    audience: "clients looking for scalp treatments, styling, and hair services",
-    offer: "a premium hair consultation and WhatsApp booking flow",
-    phone: "+966553561777",
-    websiteGoal: "make the online experience feel as premium as the salon",
-    painPoint:
-      "their strong brand can convert better with a dedicated premium landing page",
-  },
-  {
-    id: "adore-clinic",
-    priority: "High",
-    channel: "WhatsApp or Instagram",
-    businessName: "Adore Clinic",
-    ownerName: "Adore Clinic team",
-    industry: "dermatology clinic",
-    city: "Riyadh",
-    audience: "patients comparing dermatology, laser, and cosmetic treatments",
-    offer: "a clear appointment request for dermatology and aesthetic services",
-    phone: "+966112033777",
-    websiteGoal: "help patients understand treatments and request appointments faster",
-    painPoint:
-      "their listing uses Instagram and a booking link instead of a full trust-building clinic website",
-  },
-  {
-    id: "taawon-najd",
+    id: "andarena-cafe",
     priority: "High",
     channel: "WhatsApp",
-    businessName: "Taawon Najd Cleaning",
-    ownerName: "Taawon Najd team",
-    industry: "cleaning company",
+    businessName: "Andarena Cafe",
+    ownerName: "Andarena Cafe team",
+    industry: "cafe",
     city: "Riyadh",
-    audience: "homeowners and offices needing cleaning, AC washing, and pest control",
-    offer: "a same-day WhatsApp quote for cleaning services",
-    phone: "+966508011776",
-    websiteGoal: "turn social traffic into more quote requests",
+    audience: "nearby customers checking cafe hours, menu, and directions",
+    offer: "a cafe menu preview with WhatsApp ordering",
+    phone: "+966566367009",
+    websiteGoal: "make it easier for mobile visitors to choose and visit",
     painPoint:
-      "their services are spread across social posts instead of one quote-focused page",
+      "their listing points to Instagram instead of a conversion-focused cafe page",
   },
   {
-    id: "areeg-life",
-    priority: "High",
-    channel: "WhatsApp",
-    businessName: "Areeg Life Cleaning",
-    ownerName: "Areeg Life team",
-    industry: "cleaning company",
-    city: "Riyadh",
-    audience: "customers looking for reliable home and office cleaning",
-    offer: "a fast WhatsApp estimate for cleaning packages",
-    phone: "+966511303720",
-    websiteGoal: "convert more social profile visitors into paid cleaning jobs",
-    painPoint:
-      "their profile is more like a link page than a full service website with packages",
-  },
-  {
-    id: "azhar-habiba",
+    id: "at-cafe",
     priority: "High",
     channel: "WhatsApp or Instagram",
-    businessName: "Azhar Habiba",
-    ownerName: "Azhar Habiba team",
-    industry: "flower shop",
+    businessName: "At Cafe",
+    ownerName: "At Cafe team",
+    industry: "coffee shop",
     city: "Riyadh",
-    audience: "customers ordering flowers and gifts for occasions",
-    offer: "same-day bouquet and gift ordering through WhatsApp",
-    phone: "+966561247984",
-    websiteGoal: "make it easier for customers to choose and order flowers quickly",
+    audience: "customers comparing specialty coffee, desserts, hours, and menu items",
+    offer: "a clean online menu and featured drink page",
+    phone: "+966540961909",
+    websiteGoal: "convert Instagram menu traffic into visits and orders",
     painPoint:
-      "customers have to browse social content instead of a simple ordering page",
+      "their listing uses Instagram and a file menu instead of a fast mobile website",
   },
   {
-    id: "abagward",
+    id: "whj-cafe",
+    priority: "High",
+    channel: "WhatsApp or Instagram",
+    businessName: "WHJ Cafe",
+    ownerName: "WHJ Cafe team",
+    industry: "specialty coffee shop",
+    city: "Riyadh",
+    audience: "people looking for specialty coffee, study seating, and desserts",
+    offer: "a mobile cafe page with menu, hours, and map",
+    phone: "+966557378488",
+    websiteGoal: "make it easier for customers to decide before visiting",
+    painPoint:
+      "their public listing points customers to Instagram instead of a full menu page",
+  },
+  {
+    id: "coffeehood",
+    priority: "High",
+    channel: "WhatsApp or Instagram",
+    businessName: "Coffeehood",
+    ownerName: "Coffeehood team",
+    industry: "specialty coffee and dessert shop",
+    city: "Riyadh",
+    audience: "customers looking for specialty coffee, desserts, and a cozy cafe",
+    offer: "a dessert and coffee menu with WhatsApp contact",
+    phone: "+966552449869",
+    websiteGoal: "turn Linktree traffic into more cafe visits and event inquiries",
+    painPoint:
+      "their online presence relies on a link page rather than a branded website",
+  },
+  {
+    id: "oxygen-gym",
     priority: "High",
     channel: "WhatsApp",
-    businessName: "Abagward Al Narjis",
-    ownerName: "Abagward team",
-    industry: "flower and gift shop",
+    businessName: "Oxygen GYM",
+    ownerName: "Oxygen GYM team",
+    industry: "gym and fitness center",
     city: "Riyadh",
-    audience: "customers buying bouquets, gift wrapping, and seasonal gifts",
-    offer: "an easy WhatsApp checkout for flowers and gifts",
-    phone: "+966536111090",
-    websiteGoal: "speed up mobile ordering for bouquets and gifts",
+    audience: "people comparing gyms, memberships, coaches, and facilities",
+    offer: "a membership enquiry and free tour request",
+    phone: "+966920016918",
+    websiteGoal: "turn Instagram traffic into more membership enquiries",
     painPoint:
-      "their online presence can convert better with product categories and direct checkout",
+      "their public listing points to Instagram rather than a full membership landing page",
+  },
+  {
+    id: "pilax-pilates",
+    priority: "High",
+    channel: "WhatsApp",
+    businessName: "Pilax Pilates Studio",
+    ownerName: "Pilax Pilates team",
+    industry: "pilates studio",
+    city: "Riyadh",
+    audience: "women looking for pilates classes, schedules, and private sessions",
+    offer: "a class schedule and WhatsApp booking page",
+    phone: "+966539222820",
+    websiteGoal: "make it easier to book trial classes from mobile",
+    painPoint:
+      "their listing points to Instagram instead of a clear schedule and booking page",
+  },
+  {
+    id: "breathe-fitness",
+    priority: "High",
+    channel: "WhatsApp or Instagram",
+    businessName: "Breathe Ladies Fitness",
+    ownerName: "Breathe Ladies Fitness team",
+    industry: "ladies fitness studio",
+    city: "Riyadh",
+    audience: "women comparing fitness classes, HIIT programs, and gym options",
+    offer: "a free class trial or tour booking",
+    phone: "+966504993738",
+    websiteGoal: "convert Instagram visitors into tour and class-trial requests",
+    painPoint:
+      "their public presence can be stronger with a class-focused landing page",
+  },
+  {
+    id: "coach-amal",
+    priority: "High",
+    channel: "WhatsApp",
+    businessName: "Coach Amal",
+    ownerName: "Coach Amal",
+    industry: "personal trainer and pilates coach",
+    city: "Riyadh",
+    audience: "women looking for home training, pilates, weight loss, and nutrition guidance",
+    offer: "a free fitness consultation through WhatsApp",
+    phone: "+966502883813",
+    websiteGoal: "turn social viewers into booked consultations",
+    painPoint:
+      "her services are promoted through social profiles instead of a trust-building coach website",
+  },
+  {
+    id: "coach-abo-3zoz",
+    priority: "High",
+    channel: "WhatsApp",
+    businessName: "Coach Abo 3zoz",
+    ownerName: "Coach Abo 3zoz",
+    industry: "personal trainer",
+    city: "Riyadh",
+    audience: "clients looking for bodybuilding, online coaching, and personal training",
+    offer: "a WhatsApp fitness assessment and training plan",
+    phone: "+966559611155",
+    websiteGoal: "turn profile views into paid coaching consultations",
+    painPoint:
+      "his qualifications and offers can convert better on a dedicated trainer page",
   },
 ];
 
@@ -701,6 +716,26 @@ Want me to send the demo link?`;
                       <p className="mt-2 text-sm leading-6 text-slate-500">{plan.detail}</p>
                     </div>
                   ))}
+                  <div className="rounded-3xl border border-blue-100 bg-blue-50 p-4">
+                    <h3 className="font-semibold text-blue-950">
+                      Demo video downloads
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-blue-900">
+                      Short MP4 demo videos for the cafe and gym targets.
+                    </p>
+                    <div className="mt-4 grid gap-2">
+                      {riyadhTargets.map((target) => (
+                        <a
+                          className="rounded-2xl bg-white px-3 py-2 text-sm font-semibold text-blue-700 transition hover:text-blue-950"
+                          download
+                          href={`demo-videos/${target.id}.mp4`}
+                          key={target.id}
+                        >
+                          Download {target.businessName}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             </div>
