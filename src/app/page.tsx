@@ -238,20 +238,40 @@ function normalizeWhatsAppPhone(value: string) {
   return digits;
 }
 
+function getMarketingAngle(industry: string) {
+  const normalizedIndustry = industry.toLowerCase();
+
+  if (normalizedIndustry.includes("cafe") || normalizedIndustry.includes("coffee")) {
+    return "المنيو، الموقع، ساعات العمل، وزر واتساب للطلبات";
+  }
+
+  if (
+    normalizedIndustry.includes("gym") ||
+    normalizedIndustry.includes("fitness") ||
+    normalizedIndustry.includes("trainer") ||
+    normalizedIndustry.includes("pilates")
+  ) {
+    return "الباقات، مواعيد الحصص، صور المكان، وزر واتساب للحجز أو التجربة";
+  }
+
+  return "الخدمات، التقييمات، الموقع، وزر واتساب للتواصل السريع";
+}
+
 function createWhatsAppMessage(details: DemoDetails) {
   const businessName = details.businessName.trim() || "your business";
   const industry = details.industry.trim() || "business";
-  const offer = details.offer.trim() || "your main offer";
-  const websiteGoal =
-    details.websiteGoal.trim() || "get more calls and WhatsApp enquiries";
+  const ownerName = details.ownerName.trim() || "فريق العمل";
+  const marketingAngle = getMarketingAngle(industry);
 
-  return `السلام عليكم ${details.ownerName.trim() || "فريق العمل"}، سويت فيديو ديمو قصير يوضح كيف ممكن تكون صفحة موقع مخصصة لـ ${businessName}.
+  return `السلام عليكم ${ownerName}،
 
-الديمو يركز على ${offer} ويساعدكم على ${websiteGoal} من زوار الجوال وواتساب.
+شفت ${businessName} وحبيت الفكرة. جهزت لكم فيديو قصير لفكرة صفحة بسيطة باسمكم، توضح ${marketingAngle} بشكل مرتب وسريع على الجوال.
 
-إذا مناسب، أرسل لكم رابط المعاينة؟
+الفكرة مو إعلان عام، مجرد تصور سريع يوضح كيف ممكن تخلي العميل ياخذ قراره أسرع بدل ما يدور بين الروابط والحسابات.
 
-Hi ${details.ownerName.trim() || "there"}, I made a quick demo video for ${businessName}. It shows how a mobile website for your ${industry} could turn more visitors into WhatsApp enquiries. Want me to send the preview link?`;
+إذا حابين، أرسل لكم رابط الفيديو وتشوفونه بدقيقة؟
+
+Hi ${details.ownerName.trim() || "there"}, I came across ${businessName} and put together a quick idea video for a cleaner mobile page. It shows how your ${industry} could make the next step easier for customers without making them search through links. Want me to send it over?`;
 }
 
 function createWhatsAppHref(phone: string, message: string) {
@@ -298,21 +318,21 @@ export default function Home() {
   }, [details]);
 
   const outreachEmail = useMemo(() => {
-    return `Subject: I made a quick website demo for ${safeDetails.businessName}
+    return `Subject: Quick idea for ${safeDetails.businessName}
 
 Hi ${safeDetails.ownerName || "there"},
 
-I was looking at ${safeDetails.industry} businesses in ${safeDetails.city} and made a quick demo website for ${safeDetails.businessName}.
+I came across ${safeDetails.businessName} and had a simple idea for improving the mobile experience.
 
-The demo is built around one goal: help you ${safeDetails.websiteGoal}. It highlights ${safeDetails.offer}, adds stronger calls to action, and makes it easier for ${safeDetails.audience} to call from mobile.
+I put together a short preview video showing how a clean page could present your offer, location, key details, and WhatsApp button in one place. The goal is to help ${safeDetails.audience} decide faster instead of jumping between links.
 
-If you like the direction, I can finish the full site, connect the contact buttons, and make it ready to launch.
+It is not a generic template. I used your business name and built the idea around ${safeDetails.websiteGoal}.
 
-Want me to send the demo link?`;
+Want me to send the 1-minute preview?`;
   }, [safeDetails]);
 
   const smsCopy = useMemo(() => {
-    return `Hi ${safeDetails.ownerName || "there"}, I made a quick website demo for ${safeDetails.businessName} in ${safeDetails.city}. It is designed to help you ${safeDetails.websiteGoal}. Want me to send the link?`;
+    return `Hi ${safeDetails.ownerName || "there"}, I made a short idea video for ${safeDetails.businessName}. It shows how a cleaner mobile page could help customers find the key info and contact you faster. Want me to send it?`;
   }, [safeDetails]);
 
   const whatsappCopy = useMemo(() => createWhatsAppMessage(details), [details]);
