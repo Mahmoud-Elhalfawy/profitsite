@@ -414,31 +414,34 @@ Want me to send the 1-minute preview?`;
   const isEmpty = !details.businessName.trim();
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,#e0f2fe,transparent_35%),linear-gradient(135deg,#f8fafc_0%,#eef2ff_48%,#fff7ed_100%)] text-slate-950">
-      <section className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 py-8 sm:px-6 lg:px-8">
-        <header className="grid gap-8 rounded-[2rem] border border-white/70 bg-white/70 p-6 shadow-sm backdrop-blur md:grid-cols-[1.1fr_0.9fr] md:p-10">
+    <main className="min-h-screen overflow-hidden bg-[#070a14] text-slate-950">
+      <section className="relative mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 py-8 sm:px-6 lg:px-8">
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[520px] bg-[radial-gradient(circle_at_15%_10%,rgba(250,204,21,0.28),transparent_30%),radial-gradient(circle_at_85%_0%,rgba(59,130,246,0.28),transparent_28%),linear-gradient(180deg,rgba(15,23,42,1),rgba(7,10,20,0))]" />
+        <header className="relative grid gap-8 overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.06] p-6 text-white shadow-2xl shadow-black/30 backdrop-blur-2xl md:grid-cols-[1.1fr_0.9fr] md:p-10">
+          <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-amber-300/20 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-28 left-1/3 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white shadow-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-amber-300/30 bg-amber-300/10 px-4 py-2 text-sm font-semibold text-amber-100 shadow-sm">
               <Sparkles className="h-4 w-4" />
-              Sell websites with personalized demos
+              Premium outreach engine for local businesses
             </div>
             <div className="space-y-4">
-              <h1 className="max-w-3xl text-4xl font-black tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
-                Create a prospect-ready website demo in minutes.
+              <h1 className="max-w-3xl text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
+                Send a polished demo that looks like it was built for their brand.
               </h1>
-              <p className="max-w-2xl text-lg leading-8 text-slate-600">
-                Fill in a business owner&apos;s details, preview a custom landing
-                page, and copy a short message you can send to start a paid
-                website conversation.
+              <p className="max-w-2xl text-lg leading-8 text-slate-300">
+                Load a cafe or gym prospect, preview a premium landing page,
+                download a short MP4 demo, and open a persuasive WhatsApp message
+                from one dashboard.
               </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-3">
               {starterProspects.map((item, index) => (
                 <div
-                  className="rounded-2xl border border-slate-200 bg-white p-4 text-sm font-medium leading-6 text-slate-700 shadow-sm"
+                  className="rounded-3xl border border-white/10 bg-white/10 p-4 text-sm font-medium leading-6 text-slate-200 backdrop-blur"
                   key={item}
                 >
-                  <span className="mb-3 flex h-8 w-8 items-center justify-center rounded-full bg-blue-50 text-sm font-bold text-blue-700">
+                  <span className="mb-3 flex h-8 w-8 items-center justify-center rounded-full bg-amber-300 text-sm font-black text-slate-950">
                     {index + 1}
                   </span>
                   {item}
@@ -447,37 +450,37 @@ Want me to send the 1-minute preview?`;
             </div>
           </div>
 
-          <Card className="self-start bg-slate-950 text-white">
+          <Card className="relative self-start border-white/10 bg-white text-slate-950 shadow-2xl">
             <CardHeader>
-              <CardTitle className="text-white">Simple selling workflow</CardTitle>
-              <CardDescription className="text-slate-300">
-                Use the demo as proof before asking for the sale.
+              <CardTitle>Campaign-ready workflow</CardTitle>
+              <CardDescription>
+                Built for fast outreach, proof, and follow-up.
               </CardDescription>
             </CardHeader>
             <CardContent>
               {[
-                "Find an owner with a weak website.",
-                "Generate a better version with their name and offer.",
-                "Send the demo and ask if they want it launched.",
+                "Choose a cafe or gym lead with clear conversion potential.",
+                "Use a premium video and landing page mockup as proof.",
+                "Open WhatsApp with a human message ready to send.",
               ].map((step) => (
                 <div className="flex items-start gap-3" key={step}>
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-emerald-300" />
-                  <p className="text-sm leading-6 text-slate-200">{step}</p>
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-emerald-500" />
+                  <p className="text-sm leading-6 text-slate-600">{step}</p>
                 </div>
               ))}
             </CardContent>
           </Card>
         </header>
 
-        <div className="grid gap-6 lg:grid-cols-[420px_1fr]">
+        <div className="relative grid gap-6 lg:grid-cols-[420px_1fr]">
           <div className="grid h-fit gap-6">
-            <Card className="border-emerald-200 bg-emerald-50/80">
+            <Card className="border-emerald-300/20 bg-gradient-to-br from-emerald-950 via-slate-950 to-slate-900 text-white shadow-2xl shadow-emerald-950/30">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <MessageCircle className="h-5 w-5 text-emerald-600" />
+                <CardTitle className="flex items-center gap-2 text-white">
+                  <MessageCircle className="h-5 w-5 text-emerald-300" />
                   WhatsApp Business outreach
                 </CardTitle>
-                <CardDescription>
+                <CardDescription className="text-emerald-100/80">
                   Load a Riyadh target, copy the bilingual message, or open a
                   prefilled WhatsApp chat from your own account.
                 </CardDescription>
@@ -495,14 +498,14 @@ Want me to send the 1-minute preview?`;
                       <span className="grid gap-1">
                         <span>{target.businessName}</span>
                         <span className="text-xs font-medium opacity-70">
-                          {target.industry} · {target.channel}
+                          {target.industry} - {target.channel}
                         </span>
                       </span>
                     </Button>
                   ))}
                 </div>
 
-                <div className="rounded-3xl border border-emerald-100 bg-white p-4 text-sm leading-6 text-slate-800">
+                <div className="rounded-3xl border border-white/10 bg-white/95 p-4 text-sm leading-6 text-slate-800 shadow-xl">
                   <pre className="whitespace-pre-wrap font-sans">{whatsappCopy}</pre>
                 </div>
 
@@ -530,14 +533,14 @@ Want me to send the 1-minute preview?`;
                   )}
                 </div>
 
-                <div className="rounded-2xl border border-emerald-200 bg-emerald-100/60 px-4 py-3 text-sm leading-6 text-emerald-950">
+                <div className="rounded-2xl border border-emerald-300/20 bg-emerald-300/10 px-4 py-3 text-sm leading-6 text-emerald-50">
                   This opens a prefilled chat only. WhatsApp still asks you to
                   review and press send, which keeps outreach personal and safer.
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="h-fit">
+            <Card className="h-fit border-white/10 bg-white/95 shadow-2xl">
             <CardHeader>
               <CardTitle>Prospect details</CardTitle>
               <CardDescription>
@@ -647,13 +650,13 @@ Want me to send the 1-minute preview?`;
           </div>
 
           <div className="grid gap-6">
-            <Card className="overflow-hidden p-0">
-              <div className="border-b border-slate-200 bg-slate-100 px-5 py-4">
+            <Card className="overflow-hidden border-white/10 bg-white/95 p-0 shadow-2xl">
+              <div className="border-b border-slate-200 bg-slate-950 px-5 py-4">
                 <div className="flex items-center gap-2">
                   <span className="h-3 w-3 rounded-full bg-red-400" />
                   <span className="h-3 w-3 rounded-full bg-amber-400" />
                   <span className="h-3 w-3 rounded-full bg-emerald-400" />
-                  <span className="ml-3 truncate rounded-full bg-white px-4 py-1.5 text-xs font-medium text-slate-500">
+                  <span className="ml-3 truncate rounded-full bg-white/10 px-4 py-1.5 text-xs font-medium text-slate-300">
                     demo.local/{safeDetails.businessName.toLowerCase().replaceAll(" ", "-")}
                   </span>
                 </div>
@@ -677,8 +680,8 @@ Want me to send the 1-minute preview?`;
               )}
             </Card>
 
-            <div className="grid gap-6 xl:grid-cols-[1fr_360px]">
-              <Card>
+            <div className="grid gap-6 xl:grid-cols-[1fr_380px]">
+              <Card className="border-white/10 bg-white/95 shadow-2xl">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Mail className="h-5 w-5 text-blue-600" />
@@ -690,7 +693,7 @@ Want me to send the 1-minute preview?`;
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="rounded-3xl bg-slate-950 p-4 text-sm leading-6 text-slate-100">
+                  <div className="rounded-3xl bg-slate-950 p-4 text-sm leading-6 text-slate-100 shadow-xl">
                     <pre className="whitespace-pre-wrap font-sans">{outreachEmail}</pre>
                   </div>
                   <div className="grid gap-3 sm:grid-cols-2">
@@ -717,7 +720,7 @@ Want me to send the 1-minute preview?`;
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="border-white/10 bg-white/95 shadow-2xl">
                 <CardHeader>
                   <CardTitle>What to charge</CardTitle>
                   <CardDescription>
@@ -726,7 +729,7 @@ Want me to send the 1-minute preview?`;
                 </CardHeader>
                 <CardContent>
                   {packagePitch.map((plan) => (
-                    <div className="rounded-3xl border border-slate-200 p-4" key={plan.name}>
+                    <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-4" key={plan.name}>
                       <div className="flex items-center justify-between gap-3">
                         <h3 className="font-semibold text-slate-950">{plan.name}</h3>
                         <span className="rounded-full bg-emerald-50 px-3 py-1 text-sm font-bold text-emerald-700">
@@ -736,17 +739,17 @@ Want me to send the 1-minute preview?`;
                       <p className="mt-2 text-sm leading-6 text-slate-500">{plan.detail}</p>
                     </div>
                   ))}
-                  <div className="rounded-3xl border border-blue-100 bg-blue-50 p-4">
+                  <div className="rounded-3xl border border-amber-200 bg-gradient-to-br from-amber-50 to-orange-50 p-4">
                     <h3 className="font-semibold text-blue-950">
-                      Demo video downloads
+                      Premium demo videos
                     </h3>
-                    <p className="mt-2 text-sm leading-6 text-blue-900">
-                      Short MP4 demo videos for the cafe and gym targets.
+                    <p className="mt-2 text-sm leading-6 text-slate-600">
+                      Short luxury-style MP4 videos ready to send to cafe and gym targets.
                     </p>
                     <div className="mt-4 grid gap-2">
                       {riyadhTargets.map((target) => (
                         <a
-                          className="rounded-2xl bg-white px-3 py-2 text-sm font-semibold text-blue-700 transition hover:text-blue-950"
+                          className="rounded-2xl bg-white px-3 py-2 text-sm font-semibold text-slate-800 shadow-sm ring-1 ring-amber-100 transition hover:bg-slate-950 hover:text-white"
                           download
                           href={`demo-videos/${target.id}.mp4`}
                           key={target.id}
@@ -797,10 +800,10 @@ function DemoWebsite({
   };
 }) {
   return (
-    <div className="bg-white">
-      <section className="grid gap-8 bg-slate-950 p-6 text-white md:grid-cols-[1fr_340px] md:p-10">
+    <div className="bg-[#fffaf0]">
+      <section className="grid gap-8 bg-[radial-gradient(circle_at_top_right,rgba(250,204,21,0.22),transparent_28%),linear-gradient(135deg,#070a14,#111827_55%,#172033)] p-6 text-white md:grid-cols-[1fr_340px] md:p-10">
         <div className="space-y-6">
-          <div className="inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-blue-100">
+          <div className="inline-flex rounded-full border border-amber-300/30 bg-amber-300/10 px-4 py-2 text-sm font-semibold text-amber-100">
             {details.city} {details.industryTitle}
           </div>
           <div className="space-y-4">
@@ -813,21 +816,21 @@ function DemoWebsite({
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Button className="bg-blue-500 hover:bg-blue-400">
+            <Button className="bg-amber-300 text-slate-950 hover:bg-amber-200">
               Claim {details.offer}
               <ArrowRight className="h-4 w-4" />
             </Button>
-            <Button className="bg-white/10 text-white ring-1 ring-white/20 hover:bg-white/20">
+            <Button className="bg-white/10 text-white ring-1 ring-amber-200/20 hover:bg-white/20">
               <Phone className="h-4 w-4" />
               {details.phone}
             </Button>
           </div>
         </div>
 
-        <div className="rounded-[2rem] bg-white p-5 text-slate-950 shadow-2xl">
+        <div className="rounded-[2rem] bg-gradient-to-br from-white to-amber-50 p-5 text-slate-950 shadow-2xl ring-1 ring-amber-200/60">
           <div className="flex items-center justify-between border-b border-slate-100 pb-4">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700">
                 Featured offer
               </p>
               <h3 className="mt-1 text-xl font-black">{details.offer}</h3>
@@ -855,8 +858,8 @@ function DemoWebsite({
           ["Fix", details.painPoint],
           ["Audience", `Built for ${details.audience} in ${details.city}.`],
         ].map(([label, value]) => (
-          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5" key={label}>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
+          <div className="rounded-3xl border border-amber-100 bg-white p-5 shadow-sm" key={label}>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">
               {label}
             </p>
             <p className="mt-3 text-base font-semibold leading-7 text-slate-800">
@@ -866,10 +869,10 @@ function DemoWebsite({
         ))}
       </section>
 
-      <section className="border-t border-slate-100 p-6 md:p-10">
+      <section className="border-t border-amber-100 bg-white p-6 md:p-10">
         <div className="grid gap-6 md:grid-cols-[1fr_260px]">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-600">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-amber-700">
               Why customers choose us
             </p>
             <h3 className="mt-3 text-3xl font-black tracking-tight">
@@ -880,13 +883,13 @@ function DemoWebsite({
               reviews, and reasons to call without overwhelming visitors.
             </p>
           </div>
-          <div className="rounded-3xl bg-amber-50 p-5">
+          <div className="rounded-3xl bg-slate-950 p-5 text-white">
             <div className="flex gap-1 text-amber-500">
               {Array.from({ length: 5 }).map((_, index) => (
                 <Star className="h-5 w-5 fill-current" key={index} />
               ))}
             </div>
-            <p className="mt-4 text-sm font-semibold leading-6 text-slate-800">
+            <p className="mt-4 text-sm font-semibold leading-6 text-slate-100">
               &quot;Easy to contact, clear pricing, and exactly what we needed.&quot;
             </p>
             <p className="mt-3 text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
